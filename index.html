@@ -39,10 +39,32 @@ font-size:30px;
    background: #ffffff;
    opacity: .35;
 }
-
+.tab {
+  text-align: center;
+  background-color: aliceblue;
+padding: 10px;
+color:aliceblue;;
+font-size: 18px;
+font-family: Arial;
+text-decoration: none;
+display: block;
+}
+.tab button {
+    padding: 10px;
+color: black;
+font-size: 18px;
+font-family: Arial;
+text-decoration: none;
+display: inline-block;
+}
+.tabcontent {
+    display: none;
+    border-top: none;
+}
     </style>
 </head>
 <body>
+  <script src="script.js" defer></script>
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
           <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
@@ -59,10 +81,21 @@ font-size:30px;
             <li class="nav-item"><a href="https://raspisaniye-17-gimnaziya.github.io/Avtor/" class="nav-link">Авторы</a></li>
           </ul>
         </header>
+      </div>  
+     <p>Объявления</p> 
+     <div class="tab">
+      <button class="tablinks" onclick="openCity(event, '7а')">7а</button>
+      <button class="tablinks" onclick="openCity(event, '7б')">7б</button>
+      <button class="tablinks" onclick="openCity(event, '7в')">7в</button>
       </div>
-    <p>Объявления
-      <br><br><br>
-      23.11<br>
+      <div id="7а" class="tabcontent">
+
+      </div>
+      <div id="7б" class="tabcontent">
+
+      </div>
+      <div id="7в" class="tabcontent">
+      <p><br> 23.11<br>
       Краевое тестирование по математической грамотности лучше выполнить с 11.30 до 14.00<br><br>
       В 14.30 подключаемся в zoom к учителю математики с отчётом о выполнении теста.<br> То есть, у кого будут проблемы при входе в тестировании, ждут до 14.30, <br>чтобы совместо с учителем эти проблемы устранить.<br><br>
       15.20 - ИЗО онлайн<br>
@@ -70,7 +103,8 @@ font-size:30px;
       Код доступа D3CE2S<br><br>
       16.10 - нет урока<br><br>
       17.00 Физика  онлайн
-      <br><br><br>
+      <br><br><br></p> 
+      </div>
        <script>
         if (window.devicePixelRatio !== 1) { 	
          var dpt = window.devicePixelRatio;
@@ -78,6 +112,19 @@ font-size:30px;
          var widthH = window.screen.height * dpt;
          document.write('<meta name="viewport" content="width=' + widthM+ ', height=' + widthH + '">');
        } 
+       function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
      </script>
 </body>
 </html>
